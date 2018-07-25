@@ -1,0 +1,143 @@
+{
+  "project_info": {
+    "project_number": "577269237344",
+    "firebase_url": "https://projectregister-b4e1a.firebaseio.com",
+    "project_id": "projectregister-b4e1a",
+    "storage_bucket": "projectregister-b4e1a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:577269237344:android:64c2b8bb054de1b2",
+        "android_client_info": {
+          "package_name": "com.example.multikskills.projecttopireg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "577269237344-ms0agoplo8aqlgicbrvro2qnclo2u63c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.multikskills.projecttopireg",
+            "certificate_hash": "20cb30554fc473f5dd611bea7d5b7fdad0f2fe2e"
+          }
+        },
+        {
+          "client_id": "577269237344-kt10sdvcgub0sfqk71p5rt7rspej1lud.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9R0Nsz_5QSMaOa0lhen5dkOR5-p8yBZY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "577269237344-kt10sdvcgub0sfqk71p5rt7rspej1lud.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:577269237344:android:c3167d1361709084",
+        "android_client_info": {
+          "package_name": "com.example.multikskills.touristguide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "577269237344-uv4p5ksbbk9pu5r0grs06nia3ftjkuv8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.multikskills.touristguide",
+            "certificate_hash": "20cb30554fc473f5dd611bea7d5b7fdad0f2fe2e"
+          }
+        },
+        {
+          "client_id": "577269237344-kt10sdvcgub0sfqk71p5rt7rspej1lud.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9R0Nsz_5QSMaOa0lhen5dkOR5-p8yBZY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "577269237344-kt10sdvcgub0sfqk71p5rt7rspej1lud.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:577269237344:android:dcf8b7dcc8003045",
+        "android_client_info": {
+          "package_name": "com.example.smithnwokocha.projecttopic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "577269237344-5rotf9genk4id34tjps7bmkr2lglnpql.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.smithnwokocha.projecttopic",
+            "certificate_hash": "1ea2b7e84c7290715c7e3a7e266f180d677d72ab"
+          }
+        },
+        {
+          "client_id": "577269237344-kt10sdvcgub0sfqk71p5rt7rspej1lud.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9R0Nsz_5QSMaOa0lhen5dkOR5-p8yBZY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "577269237344-kt10sdvcgub0sfqk71p5rt7rspej1lud.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
