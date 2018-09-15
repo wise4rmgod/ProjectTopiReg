@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() ,MainMVP.view {
        buttonsignup.setOnClickListener {
 
 
-           if (email.text.toString().trim().isNullOrBlank() && password.text.toString().trim().isNullOrBlank()) {
+           if (email.text.toString().trim() .isNullOrBlank() && password.text.toString().trim().isNullOrBlank()) {
 
                Toast.makeText(this, "Fill in the details", Toast.LENGTH_SHORT).show()
 
@@ -99,6 +99,7 @@ class MainActivity : AppCompatActivity() ,MainMVP.view {
                                users.put("fullname",fullname.text.toString().trim())
                                users.put("password",password.text.toString().trim())
                                users.put("regno",regno.text.toString().trim())
+                               users.put("supervisor",supervisor.text.toString().trim())
                                users.put("status","Pending")
                                users.put("id", mauth.currentUser!!.uid)
                                db.collection("students").document(mauth.currentUser!!.uid).set(users)
@@ -253,12 +254,28 @@ override fun onStart() {
         alert.setPositiveButton("Login", DialogInterface.OnClickListener { dialog, whichButton ->
             Wifi_textbox.text.toString()
             Mac_textbox.text.toString()
-            val i = Intent(this,Admin_Activity::class.java)
-            startActivity(i)
-           // Toast.makeText(this@MainActivity, "Saved Sucessfully", Toast.LENGTH_LONG).show()
-            var ty=Intent(this,Admin_Activity::class.java)
-            startActivity(ty)
-        })
+            if (Wifi_textbox.text.toString().isEmpty() && Mac_textbox.text.toString().isEmpty())
+            {
+                Toast.makeText(this@MainActivity, "Some fields are empty", Toast.LENGTH_LONG).show()
+
+            }
+            else {
+
+                db.collection("students").whereEqualTo(Wifi_textbox.text.toString(),"email").whereEqualTo(Mac_textbox.text.toString(),"password").get()
+                        .addOnSuccessListener {
+                            Toast.makeText(this@MainActivity, "Authentication Sucessfully", Toast.LENGTH_LONG).show()
+                            val i = Intent(this, Admin_Activity::class.java)
+                            startActivity(i)
+
+                        }
+                        .addOnFailureListener {
+
+                                    Toast.makeText(this@MainActivity, "Authentication Not Sucessfully", Toast.LENGTH_LONG).show()
+                                }
+
+            }
+
+    })
 
         alert.setNegativeButton("", DialogInterface.OnClickListener { dialog, whichButton ->
             // what ever you want to do with No option.
@@ -266,7 +283,9 @@ override fun onStart() {
 
         alert.show()
 
-    }
+        }
+
+
 
 
 }

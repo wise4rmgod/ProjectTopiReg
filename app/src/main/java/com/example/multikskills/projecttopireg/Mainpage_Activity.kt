@@ -54,69 +54,84 @@ class Mainpage_Activity : AppCompatActivity() {
         pd = ProgressDialog(this)
         pd?.setMessage("Uploading....")
 
-        choseimg.setOnClickListener {
+        var emailintent= intent.getStringExtra("email")
+        var idintent=intent.getStringExtra("id")
 
-                val intent = Intent()
-                intent.setType("image/*")
-                intent.setAction(Intent.ACTION_PICK)
-                startActivityForResult(Intent.createChooser(intent, "Select Image"), PICK_IMAGE_REQUEST)
-            }
-            upload.setOnClickListener {
-                var id= intent.getStringExtra("id")
-                if (fileUri != null)
-                {
-                    pd?.show()
-                    val childRef = storageRef.child(id)
-                    //uploading the image
-                    val uploadTask = childRef.putFile(fileUri!!)
-                    uploadTask.addOnSuccessListener(object: OnSuccessListener<UploadTask.TaskSnapshot> {
-                        override   fun onSuccess(taskSnapshot: UploadTask.TaskSnapshot) {
+        // fetches the students fullname
 
-                            pd?.dismiss()
-                            var users=HashMap<String,Any>()
-                            users.put("imgurl",taskSnapshot.downloadUrl.toString())
+                 /**   db.collection("projecttopic").document(mauth.currentUser!!.uid).collection("topic").whereEqualTo("status", "accepted")
+                            .get()
+                            .addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    var doc = task.result
+                                    for (dc in doc) {
 
-                            db.collection("students").document(id).update(users)
-                                    .addOnSuccessListener {
-                                        Toast.makeText(this@Mainpage_Activity,"Upload successful",Toast.LENGTH_SHORT).show()
-
-
-                                        upload.startAnimation(fadein)
-                                        choseimg.startAnimation(fadein)
-                                        imageupload.startAnimation(fadein)
-                                        upload.visibility=View.GONE
-                                        choseimg.visibility=View.GONE
-                                        imageupload.visibility=View.GONE
-                                        fab.visibility=View.VISIBLE
-                                        pendingtext.visibility=View.VISIBLE
+                                        pendingtext.text = dc.getString("status")
                                     }
-                                    .addOnFailureListener {
-                                        Toast.makeText(this@Mainpage_Activity,"Registration not successful",Toast.LENGTH_SHORT).show()
-                                    }
+                                }
+                            }  **/
+                    choseimg.setOnClickListener {
 
+                        val intent = Intent()
+                        intent.setType("image/*")
+                        intent.setAction(Intent.ACTION_PICK)
+                        startActivityForResult(Intent.createChooser(intent, "Select Image"), PICK_IMAGE_REQUEST)
+                    }
+                    upload.setOnClickListener {
+                        var id = intent.getStringExtra("id")
+                        if (fileUri != null) {
+                            pd?.show()
+                            val childRef = storageRef.child(id)
+                            //uploading the image
+                            val uploadTask = childRef.putFile(fileUri!!)
+                            uploadTask.addOnSuccessListener(object : OnSuccessListener<UploadTask.TaskSnapshot> {
+                                override fun onSuccess(taskSnapshot: UploadTask.TaskSnapshot) {
+
+                                    pd?.dismiss()
+                                    var users = HashMap<String, Any>()
+                                    users.put("imgurl", taskSnapshot.downloadUrl.toString())
+
+                                    db.collection("students").document(id).update(users)
+                                            .addOnSuccessListener {
+                                                Toast.makeText(this@Mainpage_Activity, "Upload successful", Toast.LENGTH_SHORT).show()
+
+
+                                                upload.startAnimation(fadein)
+                                                choseimg.startAnimation(fadein)
+                                                imageupload.startAnimation(fadein)
+                                                upload.visibility = View.GONE
+                                                choseimg.visibility = View.GONE
+                                                imageupload.visibility = View.GONE
+                                                fab.visibility = View.VISIBLE
+                                                pendingtext.visibility = View.VISIBLE
+                                            }
+                                            .addOnFailureListener {
+                                                Toast.makeText(this@Mainpage_Activity, "Registration not successful", Toast.LENGTH_SHORT).show()
+                                            }
+
+                                }
+                            }).addOnFailureListener(object : OnFailureListener {
+                                override fun onFailure(@NonNull e: Exception) {
+                                    pd?.dismiss()
+                                    Toast.makeText(this@Mainpage_Activity, "Upload Failed -> " + e, Toast.LENGTH_SHORT).show()
+                                }
+                            })
+                        } else {
+                            Toast.makeText(this, "Select an image", Toast.LENGTH_SHORT).show()
                         }
-                    }).addOnFailureListener(object: OnFailureListener {
-                        override fun onFailure(@NonNull e:Exception) {
-                            pd?.dismiss()
-                            Toast.makeText(this@Mainpage_Activity, "Upload Failed -> " + e, Toast.LENGTH_SHORT).show()
-                        }
-                    })
+                    }
+
+
+                    fab.setOnClickListener { view ->
+                        var emailintent= intent.getStringExtra("email")
+                        var idintent=intent.getStringExtra("id")
+                        val i = Intent(this, AddProject_topic::class.java)
+                        i.putExtra("id", idintent)
+                        i.putExtra("email", emailintent)
+                        startActivity(i)
+                    }
                 }
-                else
-                {
-                    Toast.makeText(this, "Select an image", Toast.LENGTH_SHORT).show()
-                }
-            }
 
-
-
-
-
-        fab.setOnClickListener { view ->
-            val i = Intent(this,AddProject_topic::class.java)
-            startActivity(i)
-        }
-    }
 
 override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
     super.onActivityResult(requestCode, resultCode, data)
@@ -157,33 +172,9 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) 
         }
         if(id == R.id.supervisor){
             var id= intent.getStringExtra("id")
-            val alert = AlertDialog.Builder(this@Mainpage_Activity)
-            alert.setTitle("    Add superVisor name").setIcon(R.drawable.ic_perm_identity_blue_24dp)
-
-            val layout = LinearLayout(this@Mainpage_Activity)
-            layout.orientation = LinearLayout.VERTICAL
-
-            val name = EditText(this@Mainpage_Activity)
-            name.hint="Supervisor"
-            layout.addView(name)
-            alert.setView(layout)
-
-            alert.setPositiveButton("Save", DialogInterface.OnClickListener { dialog, whichButton ->
-
-
-                var users=HashMap<String,Any>()
-                users.put("supervisor",name.text.toString())
-
-                db.collection("students").document(id).update(users)
-                Toast.makeText(this@Mainpage_Activity, "Saved Sucessfully", Toast.LENGTH_LONG).show()
-            })
-
-            alert.setNegativeButton("", DialogInterface.OnClickListener { dialog, whichButton ->
-                // what ever you want to do with No option.
-                Toast.makeText(this@Mainpage_Activity, "Error Saving", Toast.LENGTH_LONG).show()
-            })
-
-            alert.show()
+            val i = Intent(this, StudentProjectTopicList_Activity::class.java)
+            i.putExtra("id", id)
+            startActivity(i)
         }
 
         if(id == R.id.schoolfees){

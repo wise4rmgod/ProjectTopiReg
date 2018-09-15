@@ -22,6 +22,11 @@ class Admin_Activity : AppCompatActivity() {
             var i=Intent(this,PendingStudents::class.java)
             startActivity(i)
         }
+
+        acceptedstudents.setOnClickListener {
+            var i=Intent(this,AcceptedStudents::class.java)
+            startActivity(i)
+        }
     }
 
 }

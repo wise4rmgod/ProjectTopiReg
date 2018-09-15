@@ -2,5 +2,8 @@
     <string name="app_name">ProjectTopiReg</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_mainpage_"></string>
+    <string name="projectmessage">Project topic registration mobile android app was created to help students and also there project co-ordinator
+    to faster the project submission of the students and also give him time to focus on other academic matters,its gives the Admin private access
+    to accept students project and also reject if needed then on the studnet section they have access to login,submit there school project as well as upload there school fees also see there project too.</string>
     <string name="title_activity_admin_">Admin_Activity</string>
 </resources>

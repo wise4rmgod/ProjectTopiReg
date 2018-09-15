@@ -3,28 +3,36 @@ package com.example.multikskills.projecttopireg.Model
 
  //data class PendingClass(val email: String,val fullname: String, val password: String  , val regno: String, val status:String, val id: String, val imgurl: String)
   class PendingClass {
-     var email: String? = null
+     var id:String?= null
+     var regno:String?= null
+     var topic: String? = null
      var fullname: String? = null
-     var regno: String? = null
-     var status: String? = null
-     var id: String? = null
-     var Password: String? = null
+     var statement: String? = null
+     var objective: String? = null
+     var motivation: String? = null
+     var significance: String? = null
      var imgurl: String? = null
+     var methodology: String? =  null
+     var status: String? = null
+
 
     constructor() {}
 
-    constructor(email: String,fullname: String,regno: String, status: String,id: String,password: String,imgurl: String) {
-        this.email = email
+    constructor(id: String,regno: String,topic: String,fullname: String,statement: String, status: String,objective: String,motivation: String,imgurl: String, methodology: String) {
+        this.id=id
+        this.regno=regno
+        this.topic = topic
         this.fullname = fullname
-        this.regno = regno
+        this.statement = statement
         this.status = status
-        this.id = id
-        this.Password= password
+        this.objective = objective
+        this.motivation= motivation
         this.imgurl=imgurl
+        this.methodology=methodology
 
     }
      constructor(email: String) {
-         this.email = email
+         this.fullname = fullname
 
      }
 

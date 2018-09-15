@@ -115,7 +115,14 @@
                 android:hint="  E-mail"
                 android:inputType="text"
                 android:visibility="gone"/>
-
+            <EditText
+                android:id="@+id/supervisor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_mail_outline_black_24dp"
+                android:hint="  Supervisor"
+                android:inputType="text"
+                android:visibility="gone"/>
             <Button
                 android:id="@+id/buttonsignup"
                 android:layout_width="wrap_content"

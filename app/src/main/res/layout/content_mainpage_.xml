@@ -12,9 +12,10 @@
         android:id="@+id/pendingtext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="196dp"
-        android:text="Pending.."
+        android:layout_marginTop="268dp"
+        android:text="Submit your project on time"
         android:textAlignment="center"
+        android:textColor="#FF570410"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -61,5 +62,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="80dp"
+        android:text="Project topic registration mobile android app was created to help students and also there project co-ordinator to faster the project submission of the students and also give him time to focus on other academic matters \n its gives the Admin private access to accept students project and also reject if needed then on the studnet section they have access to login,submit there school project as well as upload there school fees also see there project too"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choseimg" />
 
 </android.support.constraint.ConstraintLayout>

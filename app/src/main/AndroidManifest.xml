@@ -31,7 +31,8 @@
         <activity android:name=".AcceptedStudents_Activity" />
         <activity android:name=".AdminAcceptAndReject_Activivty" />
         <activity android:name=".PendingStudents" />
-        <activity android:name=".AcceptedStudents"></activity>
+        <activity android:name=".AcceptedStudents" />
+        <activity android:name=".StudentProjectTopicList_Activity"></activity>
     </application>
 
 </manifest>
